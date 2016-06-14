@@ -15,7 +15,7 @@
 //(0xABCDEF &0xFF00) >> 8
 // 0xABCDEF &0xFF
 //分别获得原数据的AB、CD、EF不同位置的数据
-//分别对应RGB三色中的红色R为AB，绿色G为CD，蓝色B为EF
+//分别对应RGB三色中的红色 R 为AB，绿色 G 为CD，蓝色 B 为EF
 
 + (UIColor *)colorWithHexString:(id)hexString {
     if (![hexString isKindOfClass:[NSString class]] || [hexString length] == 0) {
