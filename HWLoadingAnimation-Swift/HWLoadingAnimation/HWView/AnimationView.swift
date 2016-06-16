@@ -74,7 +74,7 @@ class AnimationView: UIView {
      self transform z
      */
     func transformRotationZ() {
-        self.layer.anchorPoint = CGPointMake(0.5, 0.6)
+        self.layer.anchorPoint = CGPointMake(0.5, 0.65)
         let rotationAnimation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
         rotationAnimation.toValue = CGFloat(M_PI * 2)
         rotationAnimation.duration = 0.45
