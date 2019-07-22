@@ -9,5 +9,5 @@ Animation for loading (complete with Objective-C &amp; Swift)
 
 
 
-> 原效果出处[How to Create a Complex Loading Animation in Swift](https://www.raywenderlich.com/1746-how-to-create-a-complex-loading-animation-in-swift)
+> 原效果出处 [How to Create a Complex Loading Animation in Swift](https://www.raywenderlich.com/1746-how-to-create-a-complex-loading-animation-in-swift)
 
