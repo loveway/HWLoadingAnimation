@@ -18,8 +18,8 @@ class TriangleLayer: CAShapeLayer {
         fillColor = UIColor.colorWithHexString(hex: "#da70d6").cgColor
         strokeColor = UIColor.colorWithHexString(hex: "#da70d6").cgColor
         lineWidth = 7.0
-        lineCap = kCALineCapRound
-        lineJoin = kCALineJoinRound
+        lineCap = CAShapeLayerLineCap.round
+        lineJoin = CAShapeLayerLineJoin.round
         path = smallTrianglePath.cgPath
     }
     
@@ -89,7 +89,7 @@ class TriangleLayer: CAShapeLayer {
         let triangleAnimationGroup: CAAnimationGroup = CAAnimationGroup()
         triangleAnimationGroup.animations = [triangleAnimationLeft, triangleAnimationRight, triangleAnimationTop]
         triangleAnimationGroup.duration = triangleAnimationTop.beginTime + triangleAnimationTop.duration
-        triangleAnimationGroup.fillMode = kCAFillModeForwards
+        triangleAnimationGroup.fillMode = CAMediaTimingFillMode.forwards
         triangleAnimationGroup.isRemovedOnCompletion = false
         add(triangleAnimationGroup, forKey: nil)
     }

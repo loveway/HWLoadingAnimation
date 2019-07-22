@@ -50,7 +50,7 @@ class ViewController: UIViewController, AnimationViewDelegate {
         view.addSubview(label)
         
         // 3
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.curveEaseInOut,animations: ({
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.1, options: UIView.AnimationOptions.curveEaseInOut,animations: ({
             
             label.transform = label.transform.scaledBy(x: 4.0, y: 4.0)
         }), completion: { finished in
@@ -66,7 +66,7 @@ class ViewController: UIViewController, AnimationViewDelegate {
         view.addSubview(button)
     }
     
-    func btnClick() {
+    @objc func btnClick() {
         view.backgroundColor = UIColor.white
         view.subviews.forEach { (
             $0.removeFromSuperview()

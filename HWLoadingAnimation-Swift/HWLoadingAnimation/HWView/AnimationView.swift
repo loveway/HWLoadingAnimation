@@ -46,7 +46,7 @@ class AnimationView: UIView {
     /**
      circle layer wobble animation
      */
-    func wobbleCircleLayer() {
+    @objc func wobbleCircleLayer() {
         circleLayer.wobbleAnimate()
         layer.addSublayer(triangleLayer)
         Timer.scheduledTimer(timeInterval: 0.9, target: self, selector: #selector(showTriangleAnimation), userInfo: nil, repeats: false)
@@ -55,7 +55,7 @@ class AnimationView: UIView {
     /**
      show triangle animation
      */
-    func showTriangleAnimation() {
+    @objc func showTriangleAnimation() {
         triangleLayer.triangleAnimate()
         Timer.scheduledTimer(timeInterval: 0.9, target: self, selector: #selector(transformAnima), userInfo: nil, repeats: false)
     }
@@ -63,7 +63,7 @@ class AnimationView: UIView {
     /**
      self transform and add rectangle
      */
-    func transformAnima() {
+    @objc func transformAnima() {
         transformRotationZ()
         circleLayer.contract()
         Timer.scheduledTimer(timeInterval: 0.45, target: self, selector: #selector(drawRedRectangleAnimation), userInfo: nil, repeats: false)
@@ -76,7 +76,7 @@ class AnimationView: UIView {
     func transformRotationZ() {
         self.layer.anchorPoint = CGPoint(x: 0.5, y: 0.65)
         let rotationAnimation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-        rotationAnimation.toValue = CGFloat(M_PI * 2)
+        rotationAnimation.toValue = CGFloat(Double.pi * 2)
         rotationAnimation.duration = 0.45
         rotationAnimation.isRemovedOnCompletion = true
         layer.add(rotationAnimation, forKey: nil)
@@ -85,7 +85,7 @@ class AnimationView: UIView {
     /**
      draw red stroke
      */
-    func drawRedRectangleAnimation() {
+    @objc func drawRedRectangleAnimation() {
         layer.addSublayer(redRectangleLayer)
         redRectangleLayer.strokeChangeWithColor(color: UIColor.colorWithHexString(hex: "#da70d6"))
     }
@@ -93,19 +93,19 @@ class AnimationView: UIView {
     /**
      draw blue stroke
      */
-    func drawBlueRectangleAnimation() {
+    @objc func drawBlueRectangleAnimation() {
         layer.addSublayer(blueRectangleLayer)
         blueRectangleLayer.strokeChangeWithColor(color: UIColor.colorWithHexString(hex: "#40e0b0"))
         Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(drawWaveAnimation), userInfo: nil, repeats: false)
     }
     
-    func drawWaveAnimation() {
+    @objc func drawWaveAnimation() {
         layer.addSublayer(waveLayer)
         waveLayer.animate()
         Timer.scheduledTimer(timeInterval: 0.9, target: self, selector: #selector(expandView), userInfo: nil, repeats: false)
     }
     
-    func expandView() {
+    @objc func expandView() {
         backgroundColor = UIColor.colorWithHexString(hex: "#40e0b0")
         frame = CGRect(x: frame.origin.x - blueRectangleLayer.lineWidth,
                        y: frame.origin.y - blueRectangleLayer.lineWidth,
@@ -113,7 +113,7 @@ class AnimationView: UIView {
                        height: frame.size.height + blueRectangleLayer.lineWidth * 2)
         layer.sublayers = nil
         
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
             self.frame = self.parentFrame
             }, completion: { finished in
                 self.delegate?.completeAnimation()

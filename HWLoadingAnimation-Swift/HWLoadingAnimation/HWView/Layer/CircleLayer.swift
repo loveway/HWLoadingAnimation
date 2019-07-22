@@ -89,7 +89,7 @@ class CircleLayer: CAShapeLayer {
         expandAnimation.fromValue = circleSmallPath.cgPath
         expandAnimation.toValue = circleBigPath.cgPath
         expandAnimation.duration = KAnimationDuration
-        expandAnimation.fillMode = kCAFillModeForwards
+        expandAnimation.fillMode = CAMediaTimingFillMode.forwards
         expandAnimation.isRemovedOnCompletion = false
         self.add(expandAnimation, forKey: nil)
     }
@@ -102,7 +102,7 @@ class CircleLayer: CAShapeLayer {
         contractAnimation.fromValue = circleBigPath.cgPath
         contractAnimation.toValue = circleSmallPath.cgPath
         contractAnimation.duration = KAnimationDuration
-        contractAnimation.fillMode = kCAFillModeForwards
+        contractAnimation.fillMode = CAMediaTimingFillMode.forwards
         contractAnimation.isRemovedOnCompletion = false
         add(contractAnimation, forKey: nil)
     }

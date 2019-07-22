@@ -123,7 +123,7 @@ class WaveLayer: CAShapeLayer {
         let arcAnimationGroup: CAAnimationGroup = CAAnimationGroup()
         arcAnimationGroup.animations = [waveAnimationPre, waveAnimationLow, waveAnimationMid, waveAnimationHigh, waveAnimationComplete]
         arcAnimationGroup.duration = waveAnimationComplete.beginTime + waveAnimationComplete.duration
-        arcAnimationGroup.fillMode = kCAFillModeForwards
+        arcAnimationGroup.fillMode = CAMediaTimingFillMode.forwards
         arcAnimationGroup.isRemovedOnCompletion = false
         add(arcAnimationGroup, forKey: nil)
     }
